@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snippet Vault</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro-panel">
+        <p class="eyebrow">Personal Utility</p>
+        <h1>SNIPPET VAULT</h1>
+        <p class="intro-copy">
+          자주 쓰는 코드, 명령어, 문구를 저장하고 검색하는 개인 스니펫 보관함.
+          브라우저 로컬 저장소에 기록되며 바로 복사해서 사용할 수 있다.
+        </p>
+
+        <div class="stat-grid" aria-label="Vault statistics">
+          <div class="stat-card">
+            <span class="stat-label">Total</span>
+            <strong id="total-count">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Favorites</span>
+            <strong id="favorite-count">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Visible</span>
+            <strong id="visible-count">0</strong>
+          </div>
+        </div>
+
+        <form id="snippet-form" class="snippet-form" aria-label="Snippet editor">
+          <div class="field-row">
+            <label class="field">
+              <span>Title</span>
+              <input id="title-input" name="title" type="text" maxlength="80" required />
+            </label>
+            <label class="field">
+              <span>Language</span>
+              <input id="language-input" name="language" type="text" maxlength="40" placeholder="js, bash, text" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Tags</span>
+            <input id="tags-input" name="tags" type="text" maxlength="120" placeholder="comma, separated, tags" />
+          </label>
+
+          <label class="field">
+            <span>Snippet</span>
+            <textarea id="content-input" name="content" rows="10" required></textarea>
+          </label>
+
+          <label class="field">
+            <span>Notes</span>
+            <textarea id="notes-input" name="notes" rows="3" placeholder="optional notes"></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="primary-button" type="submit">Save Snippet</button>
+            <button id="reset-button" class="ghost-button" type="button">New Entry</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="vault-panel">
+        <div class="toolbar">
+          <label class="search-field">
+            <span class="sr-only">Search snippets</span>
+            <input id="search-input" type="search" placeholder="Search titles, tags, code, notes" />
+          </label>
+
+          <label class="favorite-toggle">
+            <input id="favorites-only" type="checkbox" />
+            <span>Favorites only</span>
+          </label>
+        </div>
+
+        <div id="tag-row" class="tag-row" aria-label="Tag filters"></div>
+
+        <p id="status-message" class="status-message" aria-live="polite">
+          Ready.
+        </p>
+
+        <div id="snippet-list" class="snippet-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <template id="snippet-card-template">
+      <article class="snippet-card">
+        <div class="card-head">
+          <div>
+            <p class="snippet-language"></p>
+            <h2 class="snippet-title"></h2>
+          </div>
+          <button class="favorite-button" type="button" aria-label="Toggle favorite"></button>
+        </div>
+
+        <div class="snippet-meta">
+          <div class="snippet-tags"></div>
+          <p class="snippet-updated"></p>
+        </div>
+
+        <pre class="snippet-content"></pre>
+        <p class="snippet-notes"></p>
+
+        <div class="card-actions">
+          <button class="copy-button" type="button">Copy</button>
+          <button class="edit-button" type="button">Edit</button>
+          <button class="delete-button" type="button">Delete</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
