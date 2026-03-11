@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>민초 운석을 피하는 고구마</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <canvas id="scene" aria-label="병맛 액션 게임 화면"></canvas>
+
+      <section class="hud-panel" aria-label="게임 정보 패널">
+        <div class="panel-head">
+          <p class="eyebrow">월요병 대응 비상 훈련</p>
+          <h1>민초 운석을 피하는 고구마</h1>
+          <p class="panel-copy">
+            방향키나 마우스로 고구마 대리를 움직여 떡볶이와 커피를 챙기고,
+            민트초코 운석과 야근 서류를 피해 45초만 버티세요.
+          </p>
+        </div>
+
+        <dl class="status-grid">
+          <div class="status-card">
+            <dt>점수</dt>
+            <dd id="scoreValue">0</dd>
+          </div>
+          <div class="status-card">
+            <dt>멘탈</dt>
+            <dd id="hpValue">5 / 5</dd>
+          </div>
+          <div class="status-card">
+            <dt>남은 시간</dt>
+            <dd id="timeValue">45.0초</dd>
+          </div>
+          <div class="status-card">
+            <dt>콤보</dt>
+            <dd id="comboValue">0x</dd>
+          </div>
+          <div class="status-card">
+            <dt>칭호</dt>
+            <dd id="titleValue">축 늘어진 인턴 고구마</dd>
+          </div>
+          <div class="status-card">
+            <dt>현재 재앙</dt>
+            <dd id="eventValue">평온한 뇌절</dd>
+          </div>
+        </dl>
+
+        <div class="button-row">
+          <button id="startButton" class="action primary" type="button">
+            게임 시작
+          </button>
+          <button id="restartButton" class="action" type="button">
+            즉시 재시작
+          </button>
+        </div>
+
+        <section class="briefing" aria-label="상황 브리핑">
+          <p class="briefing-label">상황 브리핑</p>
+          <p id="messageValue" class="briefing-copy">
+            시작 버튼을 누르면 고구마 대리의 퇴근 본능이 활성화됩니다.
+          </p>
+        </section>
+
+        <ul class="rules">
+          <li>조작: ← →, A D, 또는 마우스와 터치</li>
+          <li>떡볶이와 커피는 점수, 김치 방패는 6초 보호막</li>
+          <li>민초 운석과 야근 서류는 멘탈을 깎고 콤보를 터뜨림</li>
+        </ul>
+
+        <p class="control-note">
+          목표는 단순합니다. 45초 버티면 퇴근 성공, 멘탈이 0이 되면 눈물의
+          정시 퇴장입니다.
+        </p>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

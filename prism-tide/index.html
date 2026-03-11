@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prism Tide</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <canvas id="scene" aria-label="입자와 파동이 흐르는 생성형 아트 캔버스"></canvas>
+
+      <aside class="control-panel" aria-label="Prism Tide controls">
+        <p class="eyebrow">Generative Canvas Study</p>
+        <h1>PRISM TIDE</h1>
+        <p class="panel-copy">
+          입자, 오로라 리본, 파동 그리드가 한 장면에서 겹쳐 흐르는 실시간
+          생성형 아트. 마우스를 움직이거나 터치해서 장면을 흔들 수 있습니다.
+        </p>
+
+        <div class="preset-row" role="group" aria-label="Palette presets">
+          <button class="preset active" data-preset="aurora" type="button">Aurora</button>
+          <button class="preset" data-preset="ember" type="button">Ember</button>
+          <button class="preset" data-preset="lagoon" type="button">Lagoon</button>
+        </div>
+
+        <button id="burst-button" class="burst-button" type="button">
+          Center Pulse
+        </button>
+
+        <dl class="status-grid">
+          <div>
+            <dt>Field</dt>
+            <dd id="mode-value">Aurora</dd>
+          </div>
+          <div>
+            <dt>Birds</dt>
+            <dd id="particle-value">0</dd>
+          </div>
+          <div>
+            <dt>Tempo</dt>
+            <dd id="tempo-value">72%</dd>
+          </div>
+        </dl>
+
+        <p class="micro-copy">
+          클릭하면 새 떼가 흩어졌다 다시 모이고, 프리셋을 바꾸면 하늘의 밀도와
+          색감이 함께 바뀝니다.
+        </p>
+      </aside>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

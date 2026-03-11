@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ocean Wave Simulation</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://esm.sh/three@0.176.0",
+        "three/addons/": "https://esm.sh/three@0.176.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div id="overlay">
+    <strong>Ocean Waves</strong><br />
+    Drag to rotate &middot; Scroll to zoom
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

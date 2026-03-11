@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지옥철 생존기 🚇</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Galmuri11&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 타이틀 화면 -->
+  <div id="title-screen" class="screen active">
+    <div class="title-content">
+      <div class="title-emoji">🚇</div>
+      <h1>지옥철 생존기</h1>
+      <p class="subtitle">퇴근길 2호선, 살아남아라</p>
+      <p class="route-info">강남 → 신림 (7역)</p>
+      <button id="start-btn" class="btn-start" onclick="startGame()">🚪 승차하기</button>
+      <p class="tip">💡 퇴근 시간 2호선에서 집까지 살아남는 병맛 RPG</p>
+    </div>
+  </div>
+
+  <!-- 게임 화면 -->
+  <div id="game-screen" class="screen">
+    <!-- 스탯 바 -->
+    <div id="stat-bar">
+      <div class="stat-group">
+        <div class="stat">
+          <span class="stat-label">❤️ 체력</span>
+          <div class="stat-bar-bg">
+            <div id="hp-bar" class="stat-bar-fill hp-fill" style="width:100%"></div>
+          </div>
+          <span id="hp-value" class="stat-value">100</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">🧠 멘탈</span>
+          <div class="stat-bar-bg">
+            <div id="mental-bar" class="stat-bar-fill mental-fill" style="width:100%"></div>
+          </div>
+          <span id="mental-value" class="stat-value">100</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">😇 도덕</span>
+          <div class="stat-bar-bg">
+            <div id="moral-bar" class="stat-bar-fill moral-fill" style="width:50%"></div>
+          </div>
+          <span id="moral-value" class="stat-value">50</span>
+        </div>
+      </div>
+      <div class="station-info">
+        <span id="current-station">📍 강남</span>
+        <span id="turn-info">턴 1</span>
+      </div>
+    </div>
+
+    <!-- 역 진행 표시 -->
+    <div id="station-progress">
+      <div class="station-line">
+        <span class="station-dot" data-idx="0">강남</span>
+        <span class="station-dot" data-idx="1">교대</span>
+        <span class="station-dot" data-idx="2">서초</span>
+        <span class="station-dot" data-idx="3">방배</span>
+        <span class="station-dot" data-idx="4">사당</span>
+        <span class="station-dot" data-idx="5">낙성대</span>
+        <span class="station-dot" data-idx="6">서울대입구</span>
+        <span class="station-dot" data-idx="7">신림</span>
+      </div>
+    </div>
+
+    <!-- 이벤트 영역 -->
+    <div id="event-area">
+      <div id="event-emoji" class="event-emoji"></div>
+      <h2 id="event-title" class="event-title"></h2>
+      <p id="event-desc" class="event-desc"></p>
+    </div>
+
+    <!-- 결과 텍스트 -->
+    <div id="result-area" class="result-area hidden">
+      <p id="result-text"></p>
+      <div id="stat-changes"></div>
+    </div>
+
+    <!-- 선택지 영역 -->
+    <div id="choices-area"></div>
+
+    <!-- 다음 버튼 -->
+    <button id="next-btn" class="btn-next hidden" onclick="nextTurn()">다음 역으로 →</button>
+  </div>
+
+  <!-- 역 도착 화면 -->
+  <div id="station-screen" class="screen">
+    <div class="station-arrival">
+      <div class="station-arrival-emoji">🚉</div>
+      <h2 id="arrival-station-name"></h2>
+      <p id="arrival-message"></p>
+      <button class="btn-next" onclick="continueAfterStation()">계속 →</button>
+    </div>
+  </div>
+
+  <!-- 엔딩 화면 -->
+  <div id="ending-screen" class="screen">
+    <div class="ending-content">
+      <div id="ending-emoji" class="ending-emoji"></div>
+      <h2 id="ending-title"></h2>
+      <p id="ending-desc"></p>
+      <div id="ending-stats" class="ending-stats"></div>
+      <button class="btn-start" onclick="startGame()">🔄 다시 승차하기</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

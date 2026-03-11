@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>심야열차: 그림자 질주</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hud-panel">
+      <div class="brand">
+        <span class="brand-kicker">EMERGENCY RUN</span>
+        <h1>심야열차: 그림자 질주</h1>
+        <p>붕괴하는 터널을 등지고, 끊긴 열차 위를 끝까지 달려라.</p>
+      </div>
+      <div class="hud-grid">
+        <div class="meter-card">
+          <span class="meter-label">생존 거리</span>
+          <strong id="distance-value">0m</strong>
+        </div>
+        <div class="meter-card">
+          <span class="meter-label">추격 간격</span>
+          <strong id="pursuit-value">280</strong>
+        </div>
+        <div class="meter-card">
+          <span class="meter-label">집중력</span>
+          <strong id="focus-value">100%</strong>
+        </div>
+        <div class="meter-card">
+          <span class="meter-label">차체 손상</span>
+          <strong id="hp-value">3</strong>
+        </div>
+      </div>
+      <div class="meter-stack">
+        <div class="meter-line">
+          <span>추격 파동</span>
+          <div class="meter-track"><div id="pursuit-bar" class="meter-fill danger"></div></div>
+        </div>
+        <div class="meter-line">
+          <span>대시 에너지</span>
+          <div class="meter-track"><div id="focus-bar" class="meter-fill focus"></div></div>
+        </div>
+      </div>
+      <div class="tips">
+        <div><kbd>Space</kbd> / <kbd>W</kbd> / <kbd>↑</kbd> 점프</div>
+        <div><kbd>S</kbd> / <kbd>↓</kbd> 슬라이드</div>
+        <div><kbd>Shift</kbd> / <kbd>D</kbd> 대시</div>
+      </div>
+    </section>
+
+    <section class="game-shell">
+      <canvas id="game" aria-label="심야열차 횡스크롤 게임"></canvas>
+
+      <div id="title-overlay" class="overlay active">
+        <div class="overlay-card title-card">
+          <span class="overlay-kicker">SIDE-SCROLL SURVIVAL</span>
+          <h2>추격 파동이 차체를 삼키기 전에</h2>
+          <p>
+            장애물을 넘고, 낮게 미끄러지고, 결정적인 순간엔 대시로 뚫어라.
+            충돌할수록 그림자가 더 가까워진다.
+          </p>
+          <button id="start-button" class="primary-btn">질주 시작</button>
+        </div>
+      </div>
+
+      <div id="gameover-overlay" class="overlay">
+        <div class="overlay-card result-card">
+          <span class="overlay-kicker">RUN ENDED</span>
+          <h2 id="result-title">추격 파동에 삼켜졌다</h2>
+          <p id="result-copy">다시 궤도에 올라 더 멀리 달릴 수 있다.</p>
+          <div class="result-stats">
+            <div>
+              <span>기록</span>
+              <strong id="result-distance">0m</strong>
+            </div>
+            <div>
+              <span>위험 등급</span>
+              <strong id="result-rank">D</strong>
+            </div>
+          </div>
+          <button id="restart-button" class="primary-btn">다시 시도</button>
+        </div>
+      </div>
+
+      <div class="status-ribbon">
+        <span id="status-text">신호 대기 중</span>
+      </div>
+
+      <div class="touch-controls" aria-label="모바일 조작 버튼">
+        <button class="touch-btn" data-action="jump">점프</button>
+        <button class="touch-btn" data-action="slide">슬라이드</button>
+        <button class="touch-btn accent" data-action="dash">대시</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

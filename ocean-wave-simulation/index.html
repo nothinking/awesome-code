@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ocean Wave Simulation</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <canvas id="scene" aria-label="Ocean wave simulation canvas"></canvas>
+
+      <section class="control-panel" aria-label="Wave controls">
+        <div class="panel-head">
+          <p class="eyebrow">Dynamic Surface Study</p>
+          <h1>Ocean Wave Simulation</h1>
+          <p class="panel-copy">
+            Multi-wave ocean field with perspective rendering. Drag across the
+            water to inject transient ripples.
+          </p>
+        </div>
+
+        <div class="control-grid">
+          <label class="control">
+            <span>Wave Energy</span>
+            <input id="energy" type="range" min="0" max="100" value="58" />
+            <output for="energy" id="energyValue">58</output>
+          </label>
+
+          <label class="control">
+            <span>Wind Speed</span>
+            <input id="wind" type="range" min="0" max="100" value="62" />
+            <output for="wind" id="windValue">62</output>
+          </label>
+
+          <label class="control">
+            <span>Choppiness</span>
+            <input id="chop" type="range" min="0" max="100" value="48" />
+            <output for="chop" id="chopValue">48</output>
+          </label>
+
+          <label class="control">
+            <span>Surface Detail</span>
+            <input id="detail" type="range" min="0" max="100" value="56" />
+            <output for="detail" id="detailValue">56</output>
+          </label>
+        </div>
+
+        <div class="preset-row">
+          <button class="preset" data-preset="calm" type="button">Calm</button>
+          <button class="preset" data-preset="swell" type="button">Swell</button>
+          <button class="preset" data-preset="storm" type="button">Storm</button>
+        </div>
+
+        <dl class="status-grid">
+          <div>
+            <dt>Mode</dt>
+            <dd id="modeValue">Swell</dd>
+          </div>
+          <div>
+            <dt>Wave Set</dt>
+            <dd id="waveCount">6 carriers</dd>
+          </div>
+          <div>
+            <dt>Input</dt>
+            <dd>Pointer ripples</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
